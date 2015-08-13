@@ -1,0 +1,2 @@
+# sails-hook-federalist-ms
+The purpose of this repository is to support the existing work that has been done for the Federalist platform which is being developed by 18F and the General Services Administration. In accordance with this PR (https://github.com/18F/federalist/pull/115), support for Windows and Azure will be developed via a Sailsjs installable hook. This repository will house that development effort.

@@ -50,8 +50,16 @@ describe('Sails', function () {
       should.exist(federalistms);
     });
     
-    it('should have a build function', function() {
-      (federalistms).should.have.enumerable('build');
+    it('should have a Jekyll build function', function() {
+      (federalistms).should.have.enumerable('jekyll');
+    });
+    
+    it('should have a Hugo build function', function() {
+      (federalistms).should.have.enumerable('hugo');
+    });
+    
+    it('should have a static build function', function() {
+      (federalistms).should.have.enumerable('static');
     });
     
     it('should have a publish function', function() {

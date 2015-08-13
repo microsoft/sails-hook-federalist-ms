@@ -71,6 +71,5 @@ var hook = {
 };
 
 module.exports = function federalistMS(sails) {
-	_.extend(this, hook);
-	return this;
+	return hook;
 };

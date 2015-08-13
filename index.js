@@ -24,7 +24,7 @@ var hook = {
 		
 	// Azure publishing tasks
 	publish: function (config) {
-		this.Azure.publish(config, function (err, result) {
+		Azure.publish(config, function (err, result) {
 			// sails.log.error(err);
 			if (err) console.error(err);
 				

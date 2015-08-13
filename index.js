@@ -2,12 +2,9 @@ var Azure = ('./Azure');
 var build = ('./build');
 
 var hook = {
-	
 	// Default configs for Hook
-	defaults: {
-
-	},
-		
+	defaults: {},
+	
 	// Modify hook config based on user-overridden defaults
 	configure: function () {
 		return;

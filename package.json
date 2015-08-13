@@ -1,0 +1,36 @@
+{
+  "name": "sails-hook-federalist-ms",
+  "version": "1.0.0",
+  "description": "Sailsjs installable hook for Federalist to enable platform support for Windows and publishing support for Azure",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Microsoft/sails-hook-federalist-ms.git"
+  },
+  "author": "Andrew Weiss <andrew.weiss@microsoft.com>",
+  "contributors": [
+    "Chad Wach <chad.wach@microsoft.com>"
+  ],
+  "license": "CC0-1.0",
+  "bugs": {
+    "url": "https://github.com/Microsoft/sails-hook-federalist-ms/issues"
+  },
+  "homepage": "https://github.com/Microsoft/sails-hook-federalist-ms#readme",
+  "sails": {
+    "isHook": true
+  },
+  "scripts": {
+    "test": "mocha -R spec"
+  },
+  "devDependencies": {
+    "sails": "^0.11.0",
+    "should": "^7.0.3"
+  },
+  "dependencies": {
+    "adal-node": "^0.1.15",
+    "azure-arm-resource": "^0.10.2",
+    "azure-asm-website": "^0.10.1",
+    "azure-common": "^0.9.13",
+    "ftp": "^0.3.10"
+  }
+}

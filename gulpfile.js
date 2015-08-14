@@ -19,12 +19,11 @@ gulp.task('test', function() {
 });
 
 gulp.task('docs', function(cb) {
-	exec('jsdoc index.js lib -r -d docs', function (err, stdout, stderr) {
+	exec('jsdoc --configure ./.jsdoc.json --verbose', function (err, stdout, stderr) {
 		console.log(stdout);
 		console.log(stderr);
 		cb(err);
 	});
 });
-
 
 gulp.task('default', ['test', 'docs']);

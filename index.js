@@ -1,15 +1,13 @@
-/**
- * federalist-ms installable hook
- * @module federalistMS
- */
-
 'use strict';
 
 var path = require('path');
 var lib = path.join(__dirname, 'lib');
-
-var Azure = require(path.join(lib, 'Azure'));
 var build = require(path.join(lib, 'build'));
+
+/**
+ * federalist-ms installable hook
+ * @module federalistMS
+ */
 
 /**
  * Installable hook

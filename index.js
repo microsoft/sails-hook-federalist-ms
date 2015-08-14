@@ -11,23 +11,23 @@ var build = require(path.join(lib, 'build'));
 
 /**
  * Installable hook
- * 
+ *
  * @param {Sails} sails - Sails app instance
  */
 module.exports = function federalistMS(sails) {
-	return {
-		defaults: {},
+  return {
+    defaults: {},
 
-		configure: function () {
-			return;
-		},
+    configure: function () {
+      return;
+    },
 
-		initialize: function (done) {
-			return done();
-		},
+    initialize: function (done) {
+      return done();
+    },
 
-		jekyll: build.jekyll,
-		hugo: build.hugo,
-		static: build.static
-	}
+    jekyll: build.jekyll,
+    hugo: build.hugo,
+    static: build.static
+  }
 };

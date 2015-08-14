@@ -62,10 +62,6 @@ describe('Sails', function () {
       (federalistms).should.have.enumerable('static');
     });
     
-    it('should have a publish function', function() {
-      (federalistms).should.have.enumerable('publish');
-    });
-    
   });
   
 });

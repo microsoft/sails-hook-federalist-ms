@@ -1,72 +1,35 @@
-var Azure = ('./Azure');
-var build = ('./build');
+/**
+ * federalist-ms installable hook
+ * @module federalistMS
+ */
 
-var hook = {
-	// Default configs for Hook
-	defaults: {},
-	
-	// Modify hook config based on user-overridden defaults
-	configure: function () {
-		return;
-	},
-		
-	// Hook startup tasks
-	initialize: function (done) {
-		return done();
-	},
-		
-	// Jekyll build task for execution on Windows
-	jekyll: build.jekyll,
-	
-	// Hugo build task for execution on Windows
-	hugo: build.hugo,
-	
-	// Static build task for execution on Windows
-	static: build.static,
-	
-	/*
-   * Publish a built site by copying it to its publish directory
-   * or uploading it to an Azure Web App.
-   *
-   * @param {Object} tokens from the _run command
-   * @param {Build} build model to parse
-   * @param {Function} callback function
-   */
-	publish: function (tokens, model, done) {
-		if (sails.config.build.azure) {
-			var syncConfig = {
-				prefix: tokens.root + '/' +
-				tokens.owner + '/' +
-				tokens.repository +
-				tokens.branchURL,
-				directory: tokens.destination
-			};
+'use strict';
 
-      sails.log.verbose('Publishing job: ', model.id,
-        ' => ', sails.config.build.azure);
-      Azure.publish(syncConfig, function (err, result) {
-        done(err, model);
-      });
-		} else {
-			var cmd = _.template([
-				'RMDIR ${publish} /S /Q',
-				'MKDIR ${publish}',
-				'XCOPY ${destination} ${publish} /E /I'
-			].join(' & '));
+var path = require('path');
+var lib = path.join(__dirname, 'lib');
 
-			sails.log.verbose('Publishing job: ', model.id,
-        ' => ', tokens.publish);
-      exec(cmd(tokens), function (err, stdout, stderr) {
-        if (stdout) sails.log.verbose('stdout: ' + stdout);
-        if (stderr) sails.log.verbose('stderr: ' + stderr);
-        done(err, model);
-      });
-		}
+var Azure = require(path.join(lib, 'Azure'));
+var build = require(path.join(lib, 'build'));
 
-	},
-
-};
-
+/**
+ * Installable hook
+ * 
+ * @param {Sails} sails - Sails app instance
+ */
 module.exports = function federalistMS(sails) {
-	return hook;
+	return {
+		defaults: {},
+
+		configure: function () {
+			return;
+		},
+
+		initialize: function (done) {
+			return done();
+		},
+
+		jekyll: build.jekyll,
+		hugo: build.hugo,
+		static: build.static
+	}
 };

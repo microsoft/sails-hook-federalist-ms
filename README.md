@@ -18,8 +18,10 @@ This hook is developed following the Sails.js [hook specification](http://sailsj
 npm install
 ```
 
-Unit tests are developed using [Mocha](http://mochajs.org/) which can be installed by running `npm install -g mocha`. From the root of the package directory, execute the following command to run the unit tests:
+Unit tests are developed using [Mocha](http://mochajs.org/) which can be installed by running `npm install -g mocha`.
+
+[Gulp](http://gulpjs.com/) is used to execute all unit tests and compile the documentation from the code. Execute the following command to initiate the build tasks:
 
 ```shell
-npm test
+gulp
 ```

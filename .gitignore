@@ -228,3 +228,6 @@ FakesAssemblies/
 
 # Visual Studio Code
 .settings
+
+### jsdocs ###
+jsdocs/

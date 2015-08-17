@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>index.js - Documentation</title>
+
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-azure.html">azure</a><ul class='methods'><li data-type='method'><a href="module-azure.html#._checkDeploymentStatus">_checkDeploymentStatus</a></li><li data-type='method'><a href="module-azure.html#._checkResources">_checkResources</a></li><li data-type='method'><a href="module-azure.html#._checkRGExistence">_checkRGExistence</a></li><li data-type='method'><a href="module-azure.html#._createFTPDirectories">_createFTPDirectories</a></li><li data-type='method'><a href="module-azure.html#._createResourceGroup">_createResourceGroup</a></li><li data-type='method'><a href="module-azure.html#._deployResourceGroup">_deployResourceGroup</a></li><li data-type='method'><a href="module-azure.html#._deployTemplate">_deployTemplate</a></li><li data-type='method'><a href="module-azure.html#._ftpWalk">_ftpWalk</a></li><li data-type='method'><a href="module-azure.html#._getPublishingCredentials">_getPublishingCredentials</a></li><li data-type='method'><a href="module-azure.html#._setToken">_setToken</a></li><li data-type='method'><a href="module-azure.html#._uploadContent">_uploadContent</a></li><li data-type='method'><a href="module-azure.html#._uploadFTPFiles">_uploadFTPFiles</a></li><li data-type='method'><a href="module-azure.html#.cleanup">cleanup</a></li><li data-type='method'><a href="module-azure.html#.publish">publish</a></li></ul></li><li><a href="module-build.html">build</a><ul class='methods'><li data-type='method'><a href="module-build.html#._run">_run</a></li><li data-type='method'><a href="module-build.html#.hugo">hugo</a></li><li data-type='method'><a href="module-build.html#.jekyll">jekyll</a></li><li data-type='method'><a href="module-build.html#.publish">publish</a></li><li data-type='method'><a href="module-build.html#.static">static</a></li></ul></li><li><a href="module-federalistMS.html">federalistMS</a><ul class='methods'><li data-type='method'><a href="module-federalistMS.html#~configure">configure</a></li><li data-type='method'><a href="module-federalistMS.html#~hugo%257B@linkmodule:build.hugo%257D">hugo{@link module:build.hugo}</a></li><li data-type='method'><a href="module-federalistMS.html#~initialize">initialize</a></li><li data-type='method'><a href="module-federalistMS.html#~jekyll%257B@linkmodule:build.jekyll%257D">jekyll{@link module:build.jekyll}</a></li><li data-type='method'><a href="module-federalistMS.html#~publish%257B@linkmodule:build.publish%257D">publish{@link module:build.publish}</a></li><li data-type='method'><a href="module-federalistMS.html#~static%257B@linkmodule:build.static%257D">static{@link module:build.static}</a></li></ul></li></ul><h3><a href="global.html">Global</a></h3>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">index.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>'use strict';
+
+var path = require('path');
+var lib = path.join(__dirname, 'lib');
+var build = require(path.join(lib, 'build'));
+
+
+/**
+ * federalist-ms installable hook
+ * @module federalistMS
+ */
+
+/**
+ * Installable hook
+ *
+ * @param {Sails} sails - Sails app instance
+ */
+module.exports = function federalistMS(sails) {
+  return {
+    /** Hook defaults (See Sails.js hook {@link http://sailsjs.org/documentation/concepts/extending-sails/hooks/hook-specification/defaults|specification}) */
+    defaults: {},
+    
+    /** Default overrides (See Sails.js hook {@link http://sailsjs.org/documentation/concepts/extending-sails/hooks/hook-specification/configure|specification}) */
+    configure: function () {
+      return;
+    },
+
+    /** Hook initialization (See Sails.js hook {@link http://sailsjs.org/documentation/concepts/extending-sails/hooks/hook-specification/initialize|specification}) */
+    initialize: function (done) {
+      return done();
+    },
+    
+    /** 
+     * Jekyll build task for execution on Windows
+     * @function jekyll
+     * {@link module:build.jekyll}
+     */
+    jekyll: build.jekyll,
+    
+    /** 
+     * Hugo build task for execution on Windows
+     * @function hugo
+     * {@link module:build.hugo}
+     */
+    hugo: build.hugo,
+    
+    /**
+     * Static build task for execution on Windows
+     * @function static
+     * {@link module:build.static}
+     */
+    static: build.static,
+    
+    /**
+     * Publish a built site by copiting it to its publish directory or pushing it to an Azure Web App
+     * @function publish
+     * {@link module:build.publish}
+     */
+    publish: build.publish
+  }
+};
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.3.2</a> on Mon Aug 17 2015 15:07:28 GMT-0400 (Eastern Daylight Time) using the Minami theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/linenumber.js"></script>
+</body>
+</html>

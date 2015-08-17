@@ -2,6 +2,8 @@
 
 This installable hook for Sails.js incorporates both [Windows](http://windows.com) and [Microsoft Azure](https://azure.microsoft.com) extensibility in to [18F's](https://18f.gsa.gov) [Federalist](https://github.com/18F/federalist) platform. The hook is comprised of two components: build support for Windows and static site publishing support for [Azure](https://azure.microsoft.com).
 
+Detailed API documentation for this package can be found here: https://microsoft.github.io/sails-hook-federalist-ms/.
+
 ## Windows Build Engine
 
 TODO

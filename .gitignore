@@ -233,3 +233,4 @@ typings/
 
 ### jsdocs ###
 jsdocs/
+.publish/

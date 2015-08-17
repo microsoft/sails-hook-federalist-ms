@@ -1,3 +1,5 @@
+/*global process,__dirname*/
+
 var exec = require('child_process').exec;
 
 var gulp = require('gulp');

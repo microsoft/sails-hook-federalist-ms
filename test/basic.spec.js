@@ -1,3 +1,5 @@
+/* global describe,before,after,it */
+
 var Sails = require('sails').Sails;
 var should = require('should');
 

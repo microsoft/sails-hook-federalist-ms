@@ -35,7 +35,9 @@ var azure = require(path.join(lib, 'azure'));
  * @param {Sails} sails - Sails app instance
  */
 module.exports = function federalistMS(sails) {
+  
   var hook = {
+    
     /**
      * Hook defaults (See Sails.js hook {@link http://sailsjs.org/documentation/concepts/extending-sails/hooks/hook-specification/defaults|specification})
      * 

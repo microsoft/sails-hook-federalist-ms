@@ -2,11 +2,13 @@
 
 var Sails = require('sails').Sails;
 var should = require('should');
+var azure = require('../lib/azure');
+var build = require('../lib/build');
 
 describe('Sails', function () {
 
   var sails;
-  var federalistms;
+  var federalistMS;
 
   // Before running any tests, attempt to lift Sails
   before(function (done) {
@@ -18,15 +20,17 @@ describe('Sails', function () {
     Sails().lift({
       hooks: {
         // Load the hook
-        "federalistms": require('../'),
+        "federalistMS": require('../'),
         // Skip grunt
         "grunt": false
       },
       log: { level: "error" }
     }, function (err, _sails) {
-      if (err) return done(err);
+      if (err) {
+        return done(err);
+      }
       sails = _sails;
-      federalistms = sails.hooks.federalistms;
+      federalistMS = sails.hooks.federalistMS;
       return done();
     });
   });
@@ -46,22 +50,46 @@ describe('Sails', function () {
     return true;
   });
   
-  describe('federalist-ms installable hook', function () {
+  describe('federalist-ms installable hook', function() {
     
     it('should be loaded', function () {
-      should.exist(federalistms);
+      should.exist(federalistMS);
     });
     
+    it('should have a defaults object', function() {
+      (federalistMS).should.have.enumerable('defaults');
+    });
+    
+    it('should have a configure function', function() {
+      (federalistMS).should.have.enumerable('configure');
+    });
+    
+    it('should have an initialize function', function() {
+      (federalistMS).should.have.enumerable('initialize');
+    }); 
+    
     it('should have a Jekyll build function', function() {
-      (federalistms).should.have.enumerable('jekyll');
+      (federalistMS).should.have.enumerable('jekyll');
     });
     
     it('should have a Hugo build function', function() {
-      (federalistms).should.have.enumerable('hugo');
+      (federalistMS).should.have.enumerable('hugo');
     });
     
     it('should have a static build function', function() {
-      (federalistms).should.have.enumerable('static');
+      (federalistMS).should.have.enumerable('static');
+    });
+    
+    it('should have a publish function', function() {
+      (federalistMS).should.have.enumerable('publish');
+    });
+    
+  });
+  
+  describe('federalist-ms installable hook azure module', function() {
+    
+    it('should have an AzureConfig object', function() {
+      (azure.config).should.Object();
     });
     
   });

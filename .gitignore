@@ -234,3 +234,7 @@ typings/
 ### jsdocs ###
 jsdocs/
 .publish/
+
+### Scripts ###
+Configure-AzureEnvironment.ps1
+configureAzureEnvironment.sh

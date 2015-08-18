@@ -2,11 +2,11 @@
 
 This installable hook for Sails.js incorporates both [Windows](http://windows.com) and [Microsoft Azure](https://azure.microsoft.com) extensibility in to [18F's](https://18f.gsa.gov) [Federalist](https://github.com/18F/federalist) platform. The hook is comprised of two components: build support for Windows and static site publishing support for [Azure](https://azure.microsoft.com).
 
-Detailed API documentation for this package can be found here: https://microsoft.github.io/sails-hook-federalist-ms/.
+Detailed API documentation for this package can be found here: [https://microsoft.github.io/sails-hook-federalist-ms/](https://microsoft.github.io/sails-hook-federalist-ms/).
 
 ## Setting Federalist Build Engine
 
-In order to enable this hook, set the `FEDERALIST_BUILD_ENGINE` environment variable to 'federalist-ms'.
+In order to enable this hook, set the `FEDERALIST_BUILD_ENGINE` environment variable to 'federalist-ms'. By enabling this hook, the build engine will be configured to run tasks using Windows cmd syntax. In addition, the Azure site publishing feature will be enabled.
 
 ## Windows Build Engine
 

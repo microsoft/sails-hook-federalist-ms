@@ -4,6 +4,10 @@ This installable hook for Sails.js incorporates both [Windows](http://windows.co
 
 Detailed API documentation for this package can be found here: https://microsoft.github.io/sails-hook-federalist-ms/.
 
+## Setting Federalist Build Engine
+
+In order to enable this hook, set the `FEDERALIST_BUILD_ENGINE` environment variable to 'federalist-ms'.
+
 ## Windows Build Engine
 
 TODO

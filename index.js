@@ -51,25 +51,13 @@ module.exports = function federalistMS(sails) {
           username: process.env.FEDERALIST_AZURE_USERNAME,
           password: process.env.FEDERALIST_AZURE_PASSWORD,
           clientId: process.env.FEDERALIST_AZURE_CLIENT_ID,
-          resourceGroup: {
-            name: process.env.FEDERALIST_AZURE_RG_NAME,
-            region: process.env.FEDERALIST_AZURE_REGION,
-            templatePath: process.env.FEDERALIST_AZURE_RG_TEMPLATE_PATH,
-            deploymentName: process.env.FEDERALIST_AZURE_RG_DEPLOYMENT_NAME,
-            templateParams: {
-              siteName: process.env.FEDERALIST_AZURE_WEBAPP_NAME,
-              hostingPlanName: process.env.FEDERALIST_AZURE_APPHOSTINGPLAN_NAME,
-              siteLocation: process.env.FEDERALIST_AZURE_REGION
-            }
-          },
-          tempPublishDir: process.env.FEDERALIST_AZURE_LOCAL_SITE_DIRECTORY
+          region: process.env.FEDERALIST_AZURE_REGION
         }
       }
     },
     
     /** Default overrides (See Sails.js hook {@link http://sailsjs.org/documentation/concepts/extending-sails/hooks/hook-specification/configure|specification}) */
     configure: function () {
-      azure.config = sails.config[this.configKey].azure;
       return;
     },
 
@@ -83,28 +71,28 @@ module.exports = function federalistMS(sails) {
      * @function jekyll
      * {@link module:build.jekyll}
      */
-    jekyll: build.jekyll,
+    jekyll: build.jekyll.bind(build),
     
     /** 
      * Hugo build task for execution on Windows
      * @function hugo
      * {@link module:build.hugo}
      */
-    hugo: build.hugo,
+    hugo: build.hugo.bind(build),
     
     /**
      * Static build task for execution on Windows
      * @function static
      * {@link module:build.static}
      */
-    static: build.static,
+    static: build.static.bind(build),
     
     /**
      * Publish a built site by copying it to its publish directory or pushing it to an Azure Web App
      * @function publish
      * {@link module:build.publish}
      */
-    publish: build.publish
+    publish: build.publish.bind(build)
   };
   
   return hook;

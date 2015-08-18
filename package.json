@@ -15,7 +15,7 @@
   "bugs": {
     "url": "https://github.com/Microsoft/sails-hook-federalist-ms/issues"
   },
-  "homepage": "https://github.com/Microsoft/sails-hook-federalist-ms#readme",
+  "homepage": "https://github.com/Microsoft/sails-hook-federalist-ms",
   "sails": {
     "isHook": true
   },

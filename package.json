@@ -1,6 +1,6 @@
 {
   "name": "sails-hook-federalist-ms",
-  "version": "1.0.0-alpha.1",
+  "version": "1.0.0-alpha.2",
   "description": "Sailsjs installable hook for Federalist to enable platform support for Windows and publishing support for Azure",
   "main": "index.js",
   "repository": {

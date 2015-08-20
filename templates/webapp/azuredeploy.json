@@ -60,7 +60,7 @@
       }
     },
     {
-      "apiVersion": "2015-04-01",
+      "apiVersion": "2015-06-01",
       "name": "[parameters('siteName')]",
       "type": "Microsoft.Web/sites",
       "location": "[parameters('siteLocation')]",
@@ -69,7 +69,29 @@
       ],
       "properties": {
         "serverFarmId": "[parameters('hostingPlanName')]"
-      }
+      },
+      "resources": [
+        {
+          "apiVersion": "2015-06-01",
+          "name": "web",
+          "type": "config",
+          "dependsOn": [
+            "[resourceId('Microsoft.Web/Sites', parameters('siteName'))]"
+          ],
+          "properties": {
+            "phpVersion": "off",
+            "netFrameworkVersion": "v4.5",
+            "use32BitWorkerProcess": "[parameters('use32bitWorkerProcess')",
+            "webSocketsEnabled": true,
+            "alwaysOn": false,
+            "requestTracingEnabled": true,
+            "httpLoggingEnabled": true,
+            "logsDirectorySizeLimit": 40,
+            "detailedErrorLoggingEnabled": true,
+            "scmType": "LocalGit"
+          }
+        }
+      ]
     }
   ]
 }

@@ -24,7 +24,9 @@ Jekyll must be installed in order to build sites that are created with it. Instr
 
 ## Azure Static Site Publishing
 
-Once a site has been built and staged, the hook will subsequently publish the content to an Azure Web App. In order to publish to Azure, the following environment variables need to be set:
+Once a site has been built and staged, the hook will subsequently publish the content to an Azure Web App. In order to publish to Azure, a new Azure Active Directory native client application must be created. Instructions for doing so can be found [here](https://msdn.microsoft.com/en-us/library/azure/dn132599.aspx#BKMK_Adding). The 'Redirect URI' value is arbitrary and can be set to anything.
+
+In addition, the following environment variables need to be set:
 
 | Environment Variable                 | Description          |
 | :----------------------------------- | :------------------- |

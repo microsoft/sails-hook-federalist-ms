@@ -50,7 +50,7 @@
         <article><h1>sails-hook-federalist-ms</h1><p><a href="https://www.npmjs.com/package/sails-hook-federalist-ms"><img src="https://img.shields.io/npm/v/sails-hook-federalist-ms.svg" alt="npmbadge"></a></p>
 <p>This installable hook for Sails.js incorporates both <a href="http://windows.com">Windows</a> and <a href="https://azure.microsoft.com">Microsoft Azure</a> extensibility in to <a href="https://github.com/18F/federalist">Federalist</a>, a static website management platform built and maintained by <a href="https://18f.gsa.gov">18F</a>. The hook is comprised of two components: build support for Windows (and <a href="http://azure.microsoft.com/en-us/services/app-service/web/">Azure Web Apps</a>) and static site publishing support for Azure.</p>
 <p>New releases of this package will coincide with Federalist's current stage of development; based on 18F's <a href="https://18f.gsa.gov/dashboard/stages/">Project Stage Definitions</a>.</p>
-<p>Detailed API documentation for this package can be found here: <a href="https://microsoft.github.io/sails-hook-federalist-ms/">https://microsoft.github.io/sails-hook-federalist-ms/</a>.</p>
+<p>Detailed API documentation for this package can be found here: <a href="http://microsoft.github.io/sails-hook-federalist-ms/">http://microsoft.github.io/sails-hook-federalist-ms/</a>.</p>
 <h2>Running Federalist on Windows</h2><p>In order to enable this hook, the <code>FEDERALIST_BUILD_ENGINE</code> environment variable must be set to 'federalist-ms'. By enabling this hook, the build engine will be configured to run tasks on Windows (or Web Apps), and the Azure site publishing feature will be activated.</p>
 <p>If Federalist detects that the platform is running on Windows and the <code>FEDERALIST_BUILD_ENGINE</code> environment variable is not set, an error will be logged indicating that builds will fail until the variable is set correctly.</p>
 <h3>Windows Build Engine</h3><p>Federalist works by executing a specific set of build tasks for each static site based on whether or not the site's content is built using a content generator (either <a href="http://jekyllrb.com/">Jekyll</a> or <a href="http://gohugo.io/">Hugo</a>). If the site isn't built with a generator, then the build engine simply stages the site's content for publishing as is.</p>
@@ -109,10 +109,27 @@
 <p>For the intial alpha release, FTPS is used to publish the site content. Future releases of this package will use Git for publishing. </p>
 <h2>Running Federalist on Azure</h2><p>TODO</p>
 <h2>Developing</h2><p>This hook is developed following the Sails.js <a href="http://sailsjs.org/documentation/concepts/extending-sails/hooks/hook-specification">hook specification</a>.</p>
-<p>Execute the following command to install the package's dependencies:</p>
-<pre class="prettyprint source lang-shell"><code>npm install</code></pre><p>Unit tests are developed using <a href="http://mochajs.org/">Mocha</a> which can be installed by running <code>npm install -g mocha</code>.</p>
-<p><a href="http://gulpjs.com/">Gulp</a> is used to execute all unit tests and compile the documentation from the code. Execute the following command to initiate the build tasks:</p>
-<pre class="prettyprint source lang-shell"><code>gulp</code></pre></article>
+<p>In order to install Sails and the required dependencies for contributing to the hook, the following prerequisites must be installed in the following order:</p>
+<ul>
+<li><a href="https://nodejs.org/">Node.js</a></li>
+<li><a href="https://www.visualstudio.com/">Visual Studio 2013+</a><ul>
+<li>Community Edition is sufficient</li>
+<li>Ensure Common Tools for Visual C++ are included</li>
+</ul>
+</li>
+<li><a href="https://www.python.org/downloads/">Python 2.7.x</a></li>
+<li><a href="http://rubyinstaller.org/downloads/">Ruby 2.0.0-x</a></li>
+<li><a href="http://rubyinstaller.org/downloads/">Ruby 2.0+ development kit</a><ul>
+<li>Installation instructions <a href="https://github.com/oneclick/rubyinstaller/wiki/Development-Kit">here</a></li>
+</ul>
+</li>
+<li><a href="http://gohugo.io/overview/installing/">Hugo</a></li>
+<li><a href="http://jekyll-windows.juthilo.com/">Jekyll</a></li>
+</ul>
+<p>NOTE: In order to avoid Sails npm package name length limitations imposed by Windows, npm v3.x can be used to install the hook's dependencies. Instructions for upgrading npm to v3.x can be found <a href="https://github.com/npm/npm/wiki/Troubleshooting#upgrading-on-windows">here</a>. Bear in mind that some packages might be incompatible with npm v3.x at the time of this writing. If issues arise during installation, reference the source repositories of the offending packages  on GitHub for any open issues.</p>
+<p>Execute the following command to install the dependencies for sails-hook-federalist-ms:</p>
+<pre class="prettyprint source lang-shell"><code>npm install</code></pre><p><a href="http://gulpjs.com/">Gulp</a> is used to execute all unit tests and compile the documentation from the code. The command below can be executed to initiate the build tasks.</p>
+<pre class="prettyprint source lang-shell"><code>gulp</code></pre><p>NOTE: Only those with push priveleges on the GitHub remote can update the existing gh-pages branch. Any errors in the documentation should be denoted by a new Issue on GitHub. </p></article>
     </section>
 
 
@@ -125,7 +142,7 @@
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.3.2</a> on Mon Aug 24 2015 17:35:50 GMT-0400 (Eastern Daylight Time) using the Minami theme.
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.3.2</a> on Mon Aug 24 2015 17:54:56 GMT-0400 (Eastern Daylight Time) using the Minami theme.
 </footer>
 
 <script>prettyPrint();</script>

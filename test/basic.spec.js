@@ -88,9 +88,7 @@ describe('Sails', function () {
   
   describe('federalist-ms installable hook azure module', function() {
     
-    it('should have an AzureConfig object', function() {
-      (azure.config).should.Object();
-    });
+    
     
   });
   

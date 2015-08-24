@@ -6,7 +6,7 @@ This installable hook for Sails.js incorporates both [Windows](http://windows.co
 
 New releases of this package will coincide with Federalist's current stage of development; based on 18F's [Project Stage Definitions](https://18f.gsa.gov/dashboard/stages/).
 
-Detailed API documentation for this package can be found here: [https://microsoft.github.io/sails-hook-federalist-ms/](https://microsoft.github.io/sails-hook-federalist-ms/).
+Detailed API documentation for this package can be found here: [http://microsoft.github.io/sails-hook-federalist-ms/](http://microsoft.github.io/sails-hook-federalist-ms/).
 
 ## Running Federalist on Windows
 
@@ -56,16 +56,33 @@ TODO
 
 ## Developing
 
-This hook is developed following the Sails.js [hook specification](http://sailsjs.org/documentation/concepts/extending-sails/hooks/hook-specification). Execute the following command to install the package's dependencies:
+This hook is developed following the Sails.js [hook specification](http://sailsjs.org/documentation/concepts/extending-sails/hooks/hook-specification).
+
+In order to install Sails and the required dependencies for contributing to the hook, the following prerequisites must be installed in the following order:
+
+- [Node.js](https://nodejs.org/)
+- [Visual Studio 2013+](https://www.visualstudio.com/)
+  - Community Edition is sufficient
+  - Ensure Common Tools for Visual C++ are included
+- [Python 2.7.x](https://www.python.org/downloads/)
+- [Ruby 2.0.0-x](http://rubyinstaller.org/downloads/)
+- [Ruby 2.0+ development kit](http://rubyinstaller.org/downloads/)
+  - Installation instructions [here](https://github.com/oneclick/rubyinstaller/wiki/Development-Kit)
+- [Hugo](http://gohugo.io/overview/installing/)
+- [Jekyll](http://jekyll-windows.juthilo.com/)
+
+NOTE: In order to avoid Sails npm package name length limitations imposed by Windows, npm v3.x can be used to install the hook's dependencies. Instructions for upgrading npm to v3.x can be found [here](https://github.com/npm/npm/wiki/Troubleshooting#upgrading-on-windows). Bear in mind that some packages might be incompatible with npm v3.x at the time of this writing. If issues arise during installation, reference the source repositories of the offending packages  on GitHub for any open issues.
+
+Execute the following command to install the dependencies for sails-hook-federalist-ms:
 
 ```shell
 npm install
 ```
 
-Unit tests are developed using [Mocha](http://mochajs.org/) which can be installed by running `npm install -g mocha`.
-
-[Gulp](http://gulpjs.com/) is used to execute all unit tests and compile the documentation from the code. Execute the following command to initiate the build tasks:
+[Gulp](http://gulpjs.com/) is used to execute all unit tests and compile the documentation from the code. The command below can be executed to initiate the build tasks.
 
 ```shell
 gulp
 ```
+
+NOTE: Only those with push priveleges on the GitHub remote can update the existing gh-pages branch. Any errors in the documentation should be denoted by a new Issue on GitHub. 

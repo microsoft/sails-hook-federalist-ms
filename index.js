@@ -7,21 +7,15 @@ var azure = require(path.join(lib, 'azure'));
 /**
  * Azure configuration object which is created from environment variables by default
  * @typedef AzureConfig 
- * @type {Object}
- * @property {string} subscriptionId - Azure Subscription Id
- * @property {string} authorityUrl - Azure Active Directory tentant authentication endpoint
- * @property {string} username - Azure Active Directory username (Must be an Organization Account)
- * @property {string} password - Azure Active Directory password
- * @property {string} clientId - Azure Active Directory application client Id
- * @property {Object} resourceGroup - Resource Group Configuration
- * @property {string} resourceGroup.name - Azure Resource Group Name
- * @property {string} resourceGroup.region - Azure Resource Group Region
- * @property {string} resourceGroup.templatePath - Path to Azure Resource Group template
- * @property {string} resourceGroup.deploymentName - Azure Resource Group Deployment name
- * @property {Object} resourceGroup.templateParams - Resource Group template parameters
- * @property {string} resourceGroup.templateParams.siteName - Azure Web App name
- * @property {string} resourceGroup.templateParams.hostingPlanName - Azure Web App Hosting Plan name
- * @property {string} resourceGroup.templateParams.siteLocation - Azure Web App Region
+ * @property {Object} defaults
+ * @property {Object} defaults.__configKey__
+ * @property {Object} defaults.__configKey__.azure 
+ * @property {string} defaults.__configKey__.azure.subscriptionId - Azure Subscription Id
+ * @property {string} defaults.__configKey__.azure.authorityUrl - Azure Active Directory tentant authentication endpoint
+ * @property {string} defaults.__configKey__.azure.username - Azure Active Directory username (Must be an Organization Account)
+ * @property {string} defaults.__configKey__.azure.password - Azure Active Directory password
+ * @property {string} defaults.__configKey__.azure.clientId - Azure Active Directory application client Id
+ * @property {string} defaults.__configKey__.azure.region - Azure Resource Group and Web App Region
  */
 
 /**
@@ -36,12 +30,12 @@ var azure = require(path.join(lib, 'azure'));
  */
 module.exports = function federalistMS(sails) {
   
-  var hook = {
+  return {
     
     /**
      * Hook defaults (See Sails.js hook {@link http://sailsjs.org/documentation/concepts/extending-sails/hooks/hook-specification/defaults|specification})
-     * 
-     * `defaults.__configKey__.azure` should be set to an {@link AzureConfig} object
+     *
+     * @type {AzureConfig}
      */
     defaults: {
       __configKey__: {
@@ -94,7 +88,5 @@ module.exports = function federalistMS(sails) {
      */
     publish: build.publish.bind(build)
   };
-  
-  return hook;
 
 };

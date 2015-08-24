@@ -23,7 +23,7 @@
 <label for="nav-trigger" class="overlay"></label>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-azure.html">azure</a><ul class='methods'><li data-type='method'><a href="module-azure.html#._checkDeploymentStatus">_checkDeploymentStatus</a></li><li data-type='method'><a href="module-azure.html#._checkResources">_checkResources</a></li><li data-type='method'><a href="module-azure.html#._checkRGExistence">_checkRGExistence</a></li><li data-type='method'><a href="module-azure.html#._createFTPDirectories">_createFTPDirectories</a></li><li data-type='method'><a href="module-azure.html#._createResourceGroup">_createResourceGroup</a></li><li data-type='method'><a href="module-azure.html#._deployResourceGroup">_deployResourceGroup</a></li><li data-type='method'><a href="module-azure.html#._deployTemplate">_deployTemplate</a></li><li data-type='method'><a href="module-azure.html#._ftpWalk">_ftpWalk</a></li><li data-type='method'><a href="module-azure.html#._getPublishingCredentials">_getPublishingCredentials</a></li><li data-type='method'><a href="module-azure.html#._setToken">_setToken</a></li><li data-type='method'><a href="module-azure.html#._uploadContent">_uploadContent</a></li><li data-type='method'><a href="module-azure.html#._uploadFTPFiles">_uploadFTPFiles</a></li><li data-type='method'><a href="module-azure.html#.cleanup">cleanup</a></li><li data-type='method'><a href="module-azure.html#.publish">publish</a></li></ul></li><li><a href="module-build.html">build</a><ul class='methods'><li data-type='method'><a href="module-build.html#._run">_run</a></li><li data-type='method'><a href="module-build.html#.hugo">hugo</a></li><li data-type='method'><a href="module-build.html#.jekyll">jekyll</a></li><li data-type='method'><a href="module-build.html#.publish">publish</a></li><li data-type='method'><a href="module-build.html#.static">static</a></li></ul></li><li><a href="module-federalistMS.html">federalistMS</a><ul class='methods'><li data-type='method'><a href="module-federalistMS.html#~hugo%257B@linkmodule:build.hugo%257D">hugo{@link module:build.hugo}</a></li><li data-type='method'><a href="module-federalistMS.html#~jekyll%257B@linkmodule:build.jekyll%257D">jekyll{@link module:build.jekyll}</a></li><li data-type='method'><a href="module-federalistMS.html#~publish%257B@linkmodule:build.publish%257D">publish{@link module:build.publish}</a></li><li data-type='method'><a href="module-federalistMS.html#~static%257B@linkmodule:build.static%257D">static{@link module:build.static}</a></li></ul></li></ul><h3><a href="global.html">Global</a></h3>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-azure.html">azure</a><ul class='methods'><li data-type='method'><a href="module-azure.html#._checkDeploymentStatus">_checkDeploymentStatus</a></li><li data-type='method'><a href="module-azure.html#._checkResources">_checkResources</a></li><li data-type='method'><a href="module-azure.html#._checkRGExistence">_checkRGExistence</a></li><li data-type='method'><a href="module-azure.html#._createFTPDirectories">_createFTPDirectories</a></li><li data-type='method'><a href="module-azure.html#._createResourceGroup">_createResourceGroup</a></li><li data-type='method'><a href="module-azure.html#._deployResourceGroup">_deployResourceGroup</a></li><li data-type='method'><a href="module-azure.html#._deployTemplate">_deployTemplate</a></li><li data-type='method'><a href="module-azure.html#._ftpWalk">_ftpWalk</a></li><li data-type='method'><a href="module-azure.html#._getPublishingCredentials">_getPublishingCredentials</a></li><li data-type='method'><a href="module-azure.html#._setToken">_setToken</a></li><li data-type='method'><a href="module-azure.html#._uploadContent">_uploadContent</a></li><li data-type='method'><a href="module-azure.html#._uploadFTPFiles">_uploadFTPFiles</a></li><li data-type='method'><a href="module-azure.html#.cleanup">cleanup</a></li><li data-type='method'><a href="module-azure.html#.publish">publish</a></li></ul></li><li><a href="module-build.html">build</a><ul class='methods'><li data-type='method'><a href="module-build.html#._run">_run</a></li><li data-type='method'><a href="module-build.html#.hugo">hugo</a></li><li data-type='method'><a href="module-build.html#.jekyll">jekyll</a></li><li data-type='method'><a href="module-build.html#.publish">publish</a></li><li data-type='method'><a href="module-build.html#.static">static</a></li></ul></li><li><a href="module-federalistMS.html">federalistMS</a><ul class='methods'><li data-type='method'><a href="module-federalistMS.html#~configure">configure</a></li><li data-type='method'><a href="module-federalistMS.html#~hugo%257B@linkmodule:build.hugo%257D">hugo{@link module:build.hugo}</a></li><li data-type='method'><a href="module-federalistMS.html#~initialize">initialize</a></li><li data-type='method'><a href="module-federalistMS.html#~jekyll%257B@linkmodule:build.jekyll%257D">jekyll{@link module:build.jekyll}</a></li><li data-type='method'><a href="module-federalistMS.html#~publish%257B@linkmodule:build.publish%257D">publish{@link module:build.publish}</a></li><li data-type='method'><a href="module-federalistMS.html#~static%257B@linkmodule:build.static%257D">static{@link module:build.static}</a></li></ul></li></ul><h3><a href="global.html">Global</a></h3>
 </nav>
 
 <div id="main">
@@ -74,11 +74,12 @@ module.exports = {
    * Publish to Azure
    * 
    * @param {Object} publishConfig - Azure publishing configuration
-   * @param {Function(Error)} done - callback function
+   * @param {Function(Error)} done - callback function that takes an optional `Error` object
    */
   publish: function (publishConfig, done) {
     azurePublishConfig = {};
 
+    // Combine hook deafults with publish config generated from successful build
     _.extend(azurePublishConfig, publishConfig, sails.config['federalist-ms'].azure);
     
     // Execute Azure deployment operation in series
@@ -93,7 +94,7 @@ module.exports = {
   /**
    * Retrieve authentication token for Azure
    * 
-   * @param {Function(Error, results)} callback - callback function
+   * @param {Function(Error, results)} callback - callback function that takes an optional `Error` object and `results` parameter
    */
   _setToken: function (callback) {
 
@@ -132,7 +133,7 @@ module.exports = {
   /**
    * Check existence of Azure resources in specified resource group/region
    *  
-   * @param {Function(Error, results)} callback - callback function
+   * @param {Function(Error, results)} callback - callback function that takes an optional `Error` object and `results` parameter
    */
   _checkResources: function (callback) {
     var service = this;   
@@ -189,7 +190,7 @@ module.exports = {
   /**
    * Get Web App publishing credentials
    * 
-   * @param {Function(Error, results)} callback - callback function
+   * @param {Function(Error, results)} callback - callback function that takes an optional `Error` object and `results` parameter
    */
   _getPublishingCredentials: function (callback) {
     var webSpace = azurePublishConfig.rgName + '-' + azurePublishConfig.region.replace(/ /g, '') + 'webspace';
@@ -224,7 +225,7 @@ module.exports = {
    * NOTE: Requires Node 0.10.x due to bug in TLS module as
    * described {@link https://github.com/joyent/node/issues/9272|here}
    * 
-   * @param {Function(Error, results)} callback - callback function
+   * @param {Function(Error, results)} callback - callback function that takes an optional `Error` object and `results` parameter
    */
   _uploadContent: function (callback) {
     ftpDirs.length = 0;
@@ -265,7 +266,7 @@ module.exports = {
   /**
    * Create new Resource Group and execute template deployment
    * 
-   * @param {Function(Error)} done - callback function
+   * @param {Function(Error)} done - callback function that takes an optional `Error` object
    */
   _deployResourceGroup: function (done) {
     var service = this;
@@ -296,7 +297,7 @@ module.exports = {
   /**
    * Check existence of Resource Group
    * 
-   * @param {Function(Error)} done - callback function
+   * @param {Function(Error)} done - callback function that takes an optional `Error` object
    */
   _checkRGExistence: function (done) {
     var rgName = azurePublishConfig.rgName;
@@ -321,7 +322,7 @@ module.exports = {
   /**
    * Create new Resource Group
    * 
-   * @param {Function(Error, results)} callback - callback function
+   * @param {Function(Error, results)} callback - callback function that takes an optional `Error` object and `results` parameter
    */
   _createResourceGroup: function (callback) {
 
@@ -345,7 +346,7 @@ module.exports = {
   /**
    * Deploy generated template to Resource Group
    * 
-   * @param {Function(Error, results)} callback - callback function
+   * @param {Function(Error, results)} callback - callback function that takes an optional `Error` object and `results` parameter
    */
   _deployTemplate: function (callback) {
   
@@ -394,7 +395,7 @@ module.exports = {
   /**
    * Check deployment status
    * 
-   * @param {Function(Error, results)} callback - callback function
+   * @param {Function(Error, results)} callback - callback function that takes an optional `Error` object and `results` parameter
    */
   _checkDeploymentStatus: function (callback) {
 
@@ -437,7 +438,7 @@ module.exports = {
    * NOTE: may need to adjust path references
    * 
    * @param {string} dir - directory path
-   * @param {Function(Error)} done - callback function
+   * @param {Function(Error)} done - callback function that takes an optional `Error` object
    */
   _ftpWalk: function (dir, done) {
 
@@ -476,7 +477,7 @@ module.exports = {
   /**
    * Create FTP directories
    * 
-   * @param {Function(Error, results)} callback - callback function
+   * @param {Function(Error, results)} callback - callback function that takes an optional `Error` object and `results` parameter
    */
   _createFTPDirectories: function (callback) {
     async.each(ftpDirs, createDir, function onResult(err) {
@@ -491,7 +492,7 @@ module.exports = {
      * Create directory
      * 
      * @param {string} dir - directory path
-     * @param {Function(Error)} callback - callback function
+     * @param {Function(Error)} callback - callback function that takes an optional `Error` object
      */
     function createDir(dir, callback) {
 
@@ -513,7 +514,7 @@ module.exports = {
   /**
    * Upload files via FTP
    * 
-   * @param {Function(Error)} callback - callback function
+   * @param {Function(Error)} callback - callback function that takes an optional `Error` object
    */
   _uploadFTPFiles: function (callback) {
 
@@ -528,7 +529,7 @@ module.exports = {
      * Upload file
      * 
      * @param {string} file - file path
-     * @param {Function(Error)} callback - callback function
+     * @param {Function(Error)} callback - callback function that takes an optional `Error` object
      */
     function uploadFile(file, callback) {
   
@@ -554,7 +555,7 @@ module.exports = {
    * 
    * NOTE: Cleanup stubs for Resource Group provisioning failure
    * 
-   * @param {Function(Error)} done - callback function
+   * @param {Function(Error)} done - callback function that takes an optional `Error` object
    */
   cleanup: function (done) {
   
@@ -583,7 +584,7 @@ module.exports = {
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.3.2</a> on Mon Aug 24 2015 17:20:24 GMT-0400 (Eastern Daylight Time) using the Minami theme.
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.3.2</a> on Mon Aug 24 2015 17:35:50 GMT-0400 (Eastern Daylight Time) using the Minami theme.
 </footer>
 
 <script>prettyPrint();</script>

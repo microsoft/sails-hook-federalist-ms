@@ -23,7 +23,7 @@
 <label for="nav-trigger" class="overlay"></label>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-azure.html">azure</a><ul class='methods'><li data-type='method'><a href="module-azure.html#._checkDeploymentStatus">_checkDeploymentStatus</a></li><li data-type='method'><a href="module-azure.html#._checkResources">_checkResources</a></li><li data-type='method'><a href="module-azure.html#._checkRGExistence">_checkRGExistence</a></li><li data-type='method'><a href="module-azure.html#._createFTPDirectories">_createFTPDirectories</a></li><li data-type='method'><a href="module-azure.html#._createResourceGroup">_createResourceGroup</a></li><li data-type='method'><a href="module-azure.html#._deployResourceGroup">_deployResourceGroup</a></li><li data-type='method'><a href="module-azure.html#._deployTemplate">_deployTemplate</a></li><li data-type='method'><a href="module-azure.html#._ftpWalk">_ftpWalk</a></li><li data-type='method'><a href="module-azure.html#._getPublishingCredentials">_getPublishingCredentials</a></li><li data-type='method'><a href="module-azure.html#._setToken">_setToken</a></li><li data-type='method'><a href="module-azure.html#._uploadContent">_uploadContent</a></li><li data-type='method'><a href="module-azure.html#._uploadFTPFiles">_uploadFTPFiles</a></li><li data-type='method'><a href="module-azure.html#.cleanup">cleanup</a></li><li data-type='method'><a href="module-azure.html#.publish">publish</a></li></ul></li><li><a href="module-build.html">build</a><ul class='methods'><li data-type='method'><a href="module-build.html#._run">_run</a></li><li data-type='method'><a href="module-build.html#.hugo">hugo</a></li><li data-type='method'><a href="module-build.html#.jekyll">jekyll</a></li><li data-type='method'><a href="module-build.html#.publish">publish</a></li><li data-type='method'><a href="module-build.html#.static">static</a></li></ul></li><li><a href="module-federalistMS.html">federalistMS</a><ul class='methods'><li data-type='method'><a href="module-federalistMS.html#~hugo%257B@linkmodule:build.hugo%257D">hugo{@link module:build.hugo}</a></li><li data-type='method'><a href="module-federalistMS.html#~jekyll%257B@linkmodule:build.jekyll%257D">jekyll{@link module:build.jekyll}</a></li><li data-type='method'><a href="module-federalistMS.html#~publish%257B@linkmodule:build.publish%257D">publish{@link module:build.publish}</a></li><li data-type='method'><a href="module-federalistMS.html#~static%257B@linkmodule:build.static%257D">static{@link module:build.static}</a></li></ul></li></ul><h3><a href="global.html">Global</a></h3>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-azure.html">azure</a><ul class='methods'><li data-type='method'><a href="module-azure.html#._checkDeploymentStatus">_checkDeploymentStatus</a></li><li data-type='method'><a href="module-azure.html#._checkResources">_checkResources</a></li><li data-type='method'><a href="module-azure.html#._checkRGExistence">_checkRGExistence</a></li><li data-type='method'><a href="module-azure.html#._createFTPDirectories">_createFTPDirectories</a></li><li data-type='method'><a href="module-azure.html#._createResourceGroup">_createResourceGroup</a></li><li data-type='method'><a href="module-azure.html#._deployResourceGroup">_deployResourceGroup</a></li><li data-type='method'><a href="module-azure.html#._deployTemplate">_deployTemplate</a></li><li data-type='method'><a href="module-azure.html#._ftpWalk">_ftpWalk</a></li><li data-type='method'><a href="module-azure.html#._getPublishingCredentials">_getPublishingCredentials</a></li><li data-type='method'><a href="module-azure.html#._setToken">_setToken</a></li><li data-type='method'><a href="module-azure.html#._uploadContent">_uploadContent</a></li><li data-type='method'><a href="module-azure.html#._uploadFTPFiles">_uploadFTPFiles</a></li><li data-type='method'><a href="module-azure.html#.cleanup">cleanup</a></li><li data-type='method'><a href="module-azure.html#.publish">publish</a></li></ul></li><li><a href="module-build.html">build</a><ul class='methods'><li data-type='method'><a href="module-build.html#._run">_run</a></li><li data-type='method'><a href="module-build.html#.hugo">hugo</a></li><li data-type='method'><a href="module-build.html#.jekyll">jekyll</a></li><li data-type='method'><a href="module-build.html#.publish">publish</a></li><li data-type='method'><a href="module-build.html#.static">static</a></li></ul></li><li><a href="module-federalistMS.html">federalistMS</a><ul class='methods'><li data-type='method'><a href="module-federalistMS.html#~configure">configure</a></li><li data-type='method'><a href="module-federalistMS.html#~hugo%257B@linkmodule:build.hugo%257D">hugo{@link module:build.hugo}</a></li><li data-type='method'><a href="module-federalistMS.html#~initialize">initialize</a></li><li data-type='method'><a href="module-federalistMS.html#~jekyll%257B@linkmodule:build.jekyll%257D">jekyll{@link module:build.jekyll}</a></li><li data-type='method'><a href="module-federalistMS.html#~publish%257B@linkmodule:build.publish%257D">publish{@link module:build.publish}</a></li><li data-type='method'><a href="module-federalistMS.html#~static%257B@linkmodule:build.static%257D">static{@link module:build.static}</a></li></ul></li></ul><h3><a href="global.html">Global</a></h3>
 </nav>
 
 <div id="main">
@@ -47,13 +47,15 @@ var azure = require(path.join(lib, 'azure'));
 /**
  * Azure configuration object which is created from environment variables by default
  * @typedef AzureConfig 
- * @type {Object}
- * @property {string} subscriptionId - Azure Subscription Id
- * @property {string} authorityUrl - Azure Active Directory tentant authentication endpoint
- * @property {string} username - Azure Active Directory username (Must be an Organization Account)
- * @property {string} password - Azure Active Directory password
- * @property {string} clientId - Azure Active Directory application client Id
- * @property {string} region - Azure Resource Group and Web App Region
+ * @property {Object} defaults
+ * @property {Object} defaults.__configKey__
+ * @property {Object} defaults.__configKey__.azure 
+ * @property {string} defaults.__configKey__.azure.subscriptionId - Azure Subscription Id
+ * @property {string} defaults.__configKey__.azure.authorityUrl - Azure Active Directory tentant authentication endpoint
+ * @property {string} defaults.__configKey__.azure.username - Azure Active Directory username (Must be an Organization Account)
+ * @property {string} defaults.__configKey__.azure.password - Azure Active Directory password
+ * @property {string} defaults.__configKey__.azure.clientId - Azure Active Directory application client Id
+ * @property {string} defaults.__configKey__.azure.region - Azure Resource Group and Web App Region
  */
 
 /**
@@ -68,12 +70,12 @@ var azure = require(path.join(lib, 'azure'));
  */
 module.exports = function federalistMS(sails) {
   
-  var hook = {
+  return {
     
     /**
      * Hook defaults (See Sails.js hook {@link http://sailsjs.org/documentation/concepts/extending-sails/hooks/hook-specification/defaults|specification})
-     * 
-     * `defaults.__configKey__.azure` should be set to an {@link AzureConfig} object
+     *
+     * @type {AzureConfig}
      */
     defaults: {
       __configKey__: {
@@ -126,8 +128,6 @@ module.exports = function federalistMS(sails) {
      */
     publish: build.publish.bind(build)
   };
-  
-  return hook;
 
 };
 </code></pre>
@@ -142,7 +142,7 @@ module.exports = function federalistMS(sails) {
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.3.2</a> on Mon Aug 24 2015 17:20:24 GMT-0400 (Eastern Daylight Time) using the Minami theme.
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.3.2</a> on Mon Aug 24 2015 17:35:50 GMT-0400 (Eastern Daylight Time) using the Minami theme.
 </footer>
 
 <script>prettyPrint();</script>

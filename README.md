@@ -20,7 +20,18 @@ Federalist works by executing a specific set of build tasks for each static site
 
 When running Federalist on Windows (or on an [Azure Web App](http://azure.microsoft.com/en-us/services/app-service/web/) as described below), this hook invokes the appropriate build tasks using [CMD-based](https://en.wikipedia.org/wiki/Cmd.exe) syntax. All task output is redirected to stdout and subsequently attached to the Federalist logging engine.
 
-Jekyll must be installed in order to build sites that are created with it. Instructions for installing Jekyll on Windows can be found [here](http://jekyll-windows.juthilo.com/). Similarly, Hugo is required to build sites that depend on it and installation instructions can be found [here](http://gohugo.io/overview/installing/).
+#### Jekyll
+
+Jekyll must be installed in order to build sites that are created with it. Instructions for installing Jekyll on Windows can be found [here](http://jekyll-windows.juthilo.com/). In addition, you'll want to install additional Ruby gem dependencies which can be done using the following commands:
+
+```sh
+gem install bundler
+bundle install
+```
+
+#### Hugo
+
+Hugo is required to build sites that depend on it and installation instructions can be found [here](http://gohugo.io/overview/installing/).
 
 ## Azure Static Site Publishing
 
@@ -54,7 +65,7 @@ For the intial alpha release, FTPS is used to publish the site content. Future r
 
 TODO
 
-## Developing
+## Developing on Windows
 
 This hook is developed following the Sails.js [hook specification](http://sailsjs.org/documentation/concepts/extending-sails/hooks/hook-specification).
 

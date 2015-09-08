@@ -63,7 +63,11 @@ For the intial alpha release, FTPS is used to publish the site content. Future r
 
 ## Running Federalist on Azure
 
-TODO
+TODOs
+
+- Set environment variables (including `RUBY_HOME`)
+- Installer bundler gem
+- Execute `bundle` command at root to install Gem dependencies
 
 ## Developing on Windows
 

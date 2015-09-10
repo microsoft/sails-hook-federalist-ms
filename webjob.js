@@ -3,6 +3,7 @@
 var util = require('util');
 var request = require('request');
 var siteName = process.env.WEBSITE_SITE_NAME;
+var pollingIntervalId;
 
 function webjobAPIRequest(method, jobName, endpoint, qs, done) {
   var uri = util.format("https://%s.scm.azurewebsites.net/api/triggeredwebjobs/%s/%s", siteName, jobName, endpoint);
@@ -38,11 +39,13 @@ function invokeWebjob(jobName, model, done) {
     }
 
     pollWebjob(jobName, function onPoll(err, result) {
+      clearInterval(pollingIntervalId);
+            
       if (err) {
         return done(err);
       }
-
-      done(null, result);
+      
+      done();
     });
   });
 }
@@ -57,20 +60,19 @@ function pollWebjob(jobName, done) {
     var runId = resObj.runs[0].id;
     var endpoint = 'history/' + runId;
     var intervalCount;
-    var intervalId = setInterval(function () {
+    pollingIntervalId = setInterval(function () {
       webjobAPIRequest('GET', jobName, endpoint, null, function onWebjobAPIRequest(err, res) {
         if (err) {
           return done(err);
         }
-
+        
         if (intervalCount > 24) {
-          clearInterval(intervalId);
-          return done('Webjob failed to complete in 60 seconds');
+          return done('Webjob execution exceeded 4 minutes without a response');
         }
 
         var resObj = JSON.parse(res.body);
         if (resObj.status === "Success" || resObj.status === "Failed") {
-          done(null, res);
+          done();
         }
 
         intervalCount++;
@@ -92,7 +94,7 @@ module.exports = {
 
         model.user.passport = passport;
 
-        invokeWebjob(jobName, model, function onInvokeWebjob(err, result) {
+        invokeWebjob(jobName, model, function onInvokeWebjob(err) {
           if (err) {
             sails.log.error(err);
             return done(err);
@@ -113,7 +115,7 @@ module.exports = {
 
         model.user.passport = passport;
 
-        invokeWebjob(jobName, model, function onInvokeWebjob(err, result) {
+        invokeWebjob(jobName, model, function onInvokeWebjob(err) {
           if (err) {
             sails.log.error(err);
             return done(err);

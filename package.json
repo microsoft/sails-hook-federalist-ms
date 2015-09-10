@@ -37,6 +37,7 @@
     "azure-arm-resource": "^0.10.2",
     "azure-asm-website": "^0.10.1",
     "azure-common": "^0.9.13",
-    "ftp": "^0.3.10"
+    "ftp": "^0.3.10",
+    "request": "^2.61.0"
   }
 }

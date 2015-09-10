@@ -1,0 +1,10 @@
+{
+  "name": "build-jekyll",
+  "version": "1.0.0",
+  "description": "",
+  "main": "run.js",
+  "author": "",
+  "dependencies": {
+    "lodash": "^3.10.1"
+  }
+}

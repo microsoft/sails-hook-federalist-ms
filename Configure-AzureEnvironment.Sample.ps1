@@ -34,3 +34,9 @@ $env:GITHUB_WEBHOOK_URL = ''
 
 # GitHub webhook secret
 $env:GITHUB_WEBHOOK_SECRET = ''
+
+# Azure Webjob API Username (site-level credentials)  
+$env:FEDERALIST_AZURE_WEBJOB_USERNAME = ''
+
+# Azure Webjob API Password (site-level credentials)
+$env:FEDERALIST_AZURE_WEBJOB_PASSWORD = ''

@@ -2,6 +2,9 @@ var path = require('path');
 var lib = path.join(__dirname, 'lib');
 var build = require(path.join(lib, 'build'));
 var azure = require(path.join(lib, 'azure'));
+var webjob = require('./webjob');
+var jobEngine = process.env.FEDERALIST_JOB_ENGINE;
+
 
 
 /**
@@ -46,6 +49,10 @@ module.exports = function federalistMS(sails) {
           password: process.env.FEDERALIST_AZURE_PASSWORD,
           clientId: process.env.FEDERALIST_AZURE_CLIENT_ID,
           region: process.env.FEDERALIST_AZURE_REGION
+        },
+        webjob: {
+          username: process.env.FEDERALIST_AZURE_WEBJOB_USERNAME,
+          password: process.env.FEDERALIST_AZURE_WEBJOB_PASSWORD
         }
       }
     },
@@ -65,28 +72,28 @@ module.exports = function federalistMS(sails) {
      * @function jekyll
      * {@link module:build.jekyll}
      */
-    jekyll: build.jekyll.bind(build),
+    jekyll: (jobEngine === 'webjob') ? webjob.build.jekyll.bind(build) : build.jekyll.bind(build),
     
     /** 
      * Hugo build task for execution on Windows
      * @function hugo
      * {@link module:build.hugo}
      */
-    hugo: build.hugo.bind(build),
+    hugo: (jobEngine === 'webjob') ? webjob.build.hugo.bind(build) : build.hugo.bind(build),
     
     /**
      * Static build task for execution on Windows
      * @function static
      * {@link module:build.static}
      */
-    static: build.static.bind(build),
+    static: (jobEngine === 'webjob') ? webjob.build.static.bind(build) : build.static.bind(build),
     
     /**
      * Publish a built site by copying it to its publish directory or pushing it to an Azure Web App
      * @function publish
      * {@link module:build.publish}
      */
-    publish: build.publish.bind(build)
+    publish: (jobEngine === 'webjob') ? webjob.publish.bind(build) : build.publish.bind(build)
   };
 
 };

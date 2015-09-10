@@ -227,7 +227,8 @@ FakesAssemblies/
 *.opt
 
 # Visual Studio Code
-.settings
+.settings/
+.vscode/
 jsconfig.json
 typings/
 
